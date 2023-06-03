@@ -1,5 +1,5 @@
 import {database} from "./configFirebase.js"
-import { collection, setDoc, doc, addDoc, getDoc } from "firebase/firestore";
+import { collection, setDoc, doc, addDoc, getDoc, query, where, getDocs } from "firebase/firestore";
 class ServiceData {
     adsRef = collection(database, 'ads')
     saveAdData = async(data)=>{
@@ -14,6 +14,18 @@ class ServiceData {
           } else {
             console.log("No such document!");
           }
+    }
+    getAllAds = async()=>{
+      const Ads = []
+      const querySnapshot = await getDocs(this.adsRef);
+      querySnapshot.forEach((doc) => {
+        Ads.push({
+          id: doc.id,
+          data: doc.data()
+        })
+      });
+      return Ads
+
     }
 }
 const serviceData = new ServiceData()
