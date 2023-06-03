@@ -5,7 +5,7 @@ import SearchBig from './components/SearchBig';
 import DepartamentosFilter from './components/DepartamentosFilter';
 import Footer from './components/Footer';
 import PremiumAdsCarrusel from './components/PremiumAdsCarrusel';
-import AdsListHome from './components/adsListHome';
+// import AdsListHome from './components/adsListHome';
 import { serviceData } from '@/services/data.service';
 import { authService } from '@/services/auth.service';
 import { getAuth } from "firebase/auth";
@@ -22,7 +22,7 @@ const index = async() => {
       </div>
       <DepartamentosFilter />
       <PremiumAdsCarrusel />
-      <AdsListHome />
+      {/* <AdsListHome /> */}
     </>
   );
 };
