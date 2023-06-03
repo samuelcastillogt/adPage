@@ -9,7 +9,7 @@ const DepartamentosFilter = () => {
                 <input type="checkbox" id="cbox2" value="Todo el Pais" /> <label for="cbox2">Todo el pais</label>
                 </div>
             {
-                departamentos.map((item)=> <div>
+                departamentos.map((item)=> <div key={item}>
                 <input type="checkbox" id="cbox2" value={item} /> <label for="cbox2">{item}</label>
                 </div>)
             }
