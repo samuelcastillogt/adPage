@@ -24,7 +24,7 @@ const page = async() => {
                 <th className='mx-5 w-24'>Numero</th>
               </tr>
               {
-                ads.map((item, index)=> <tr className='divide-y divide-gray-400 table-auto border-spacing-x-1.5 w-full border-b-2 border-gray-300 p-5'>
+                ads.map((item, index)=> <tr className='divide-y divide-gray-400 table-auto border-spacing-x-1.5 w-full border-b-2 border-gray-300 p-5' key={item.id}>
                   <td className='divide-y text-center divide-gray-400 p-5'>{item.data.titulo}</td>
                   <td className='divide-y text-center divide-gray-400'>Activo</td>
                   <td><AiFillDelete className="text-red-500 text-center"/></td>
