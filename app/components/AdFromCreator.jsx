@@ -38,14 +38,14 @@ const AdFormCreator = () => {
                 <input type="text" value={titulo} onChange={(e)=>setTitulo(e.target.value)} placeholder='Titulo del anuncio' className='border-yellow-700 w-80 border rounded m-5'/>
                 <textarea value={descripcion} onChange={(e)=>setDescripcion(e.target.value)} className='border-yellow-700 w-80 border rounded m-5' placeholder='Descripcion'></textarea>
                 <input type="text" value={precio} onChange={(e)=>setPrecio(e.target.value)} placeholder='Precio' className='border-yellow-700 w-80 border rounded m-5'/>
-                <button onClick={saveData} className={titulo.length == 0 || descripcion.length == 0 || precio.length == 0 ? "bg-yellow-300 p-3 rounded-xl" : "bg-yellow-700 p-3 rounded-xl"} disabled={titulo.length == 0 || descripcion.length == 0 || precio.length == 0}>Crear anuncio</button>
+                <button onClick={saveData} className={titulo.length == 0 || descripcion.length == 0 || precio.length == 0 ? "bg-yellow-300 p-3 rounded-xl" : "bg-[#FEAE00] p-3 rounded-xl"} disabled={titulo.length == 0 || descripcion.length == 0 || precio.length == 0}>Crear anuncio</button>
             </div>
             {
                 error != false && error
             }
             {
                 anuncio && <>
-                <Link href={"/detalles/" + anuncio} className="bg-yellow-700">Ver anuncio publicado</Link>
+                <Link href={"/detalles/" + anuncio} className="bg-[#FEAE00]">Ver anuncio publicado</Link>
                 </>
             }
         </div>

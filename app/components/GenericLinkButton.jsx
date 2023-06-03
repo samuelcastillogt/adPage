@@ -3,7 +3,7 @@ import Link from 'next/link'
 const GenericLinkButton = (props) => {
     const {title, to} = props
     return (
-        <Link href={to} className='bg-yellow-700 p-3 rounded-lg m-2 text-center text-white'>{title}</Link>
+        <Link href={to} className='bg-[#FEAE00] p-3 rounded-full m-2 text-center '>{title}</Link>
     );
 };
 

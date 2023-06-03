@@ -13,7 +13,7 @@ const SearchBig = () => {
     return (
         <div className='p-5 w-full flex flex-nowrap justify-center items-center'>
             <input type="text" name="" id="" className='rounded-lg border border-yellow-700 w-80 focus:border-blue-400'/>
-            <button className='bg-yellow-700 w-32 h-12 text-white rounded-full' onClick={getData}>Buscar</button>
+            <button className='bg-[#FEAE00] w-32 h-12  rounded-full' onClick={getData}>Buscar</button>
         </div>
     );
 };
