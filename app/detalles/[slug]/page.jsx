@@ -14,8 +14,3 @@ const page = async({params}) => {
 };
 
 export default page;
-export async function getServerSideProps() {
-    console.log("hola")
-    const data = await serviceData.getAdData("Q8URNUh80bdgnM2JVqjy");
-    return {props: {data}}
-  }
