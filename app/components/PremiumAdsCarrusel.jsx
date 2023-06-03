@@ -3,7 +3,7 @@ import React from 'react';
 
 const PremiumAdsCarrusel = () => {
     return (
-        <>
+        <table>
         <tr className='bg-black m-5 h-20 flex justify-center items-center snap-x'>
 
             {
@@ -56,7 +56,7 @@ const PremiumAdsCarrusel = () => {
             <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
             <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
         </tr>
-        </>
+        </table>
         
     );
 };

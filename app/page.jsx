@@ -7,10 +7,13 @@ import Footer from './components/Footer';
 import PremiumAdsCarrusel from './components/PremiumAdsCarrusel';
 import AdsListHome from './components/adsListHome';
 import { serviceData } from '@/services/data.service';
-
+import { authService } from '@/services/auth.service';
+import { getAuth } from "firebase/auth";
+const auth = getAuth();
 const index = async() => {
   const adsData = await serviceData.getAllAds()
-  console.log(adsData)
+  const user = auth.currentUser;
+  console.log("header", user)
   return (
     <>
       <SliderFull />

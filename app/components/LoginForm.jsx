@@ -2,28 +2,32 @@
 import React, { useState } from 'react';
 import Header from './Header';
 import {ImGoogle3} from "react-icons/im"
+import { authService } from '../../services/auth.service';
 const LoginForm = () => {
     const [login, setLogin] = useState(true)
+    const auth = ()=>{
+      authService.login()
+    }
     return (
-        <>
+        <div className='h-96 flex flex-col justify-center items-center'>
           {
             login ? <>
-             Crea una cuenta
-          <div className="btn bg-[#FEAE00] rounded-full text-center  w-6/12 p-5">
-            <p>Crear una cuenta con Google <ImGoogle3 style={{margin: 0, display: "inline"}}/></p>
+            <p className='font-bold text-3xl'>Crea una cuenta</p> 
+          <div className="btn bg-[#FEAE00] rounded-full text-center  w-72 p-5 cursor-pointer" onClick={auth}>
+            <p className='font-bold'>Crear una cuenta con Google <ImGoogle3 style={{margin: 0, display: "inline"}} /></p>
             </div>  
-            <p onClick={()=> setLogin(false)}>Ya tengo una cuenta</p>
+            <p onClick={()=> setLogin(false)} className='cursor-pointer my-5 hover:text-red-600'>Ya tengo una cuenta</p>
                     </> :
 
 <>
-Iniciar Sesion
-<div className="btn bg-[#FEAE00] rounded-full text-center  w-6/12 p-5">
-<p>Iniciar Sesion con Google <ImGoogle3 style={{margin: 0, display: "inline"}}/></p>
+<p className="font-bold text-3xl">Iniciar Sesion</p> 
+<div className="btn bg-[#FEAE00] rounded-full text-center  w-72 p-5 cursor-pointer" onClick={auth}>
+<p className='font-bold'>Iniciar Sesion con Google <ImGoogle3 style={{margin: 0, display: "inline"}}/></p>
 </div>  
        </>
           }
          
-        </>
+        </div>
     );
 };
 
