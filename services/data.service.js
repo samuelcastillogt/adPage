@@ -24,6 +24,7 @@ class ServiceData {
           data: doc.data()
         })
       });
+      console.log("dentro de la funcion",Ads)
       return Ads
 
     }

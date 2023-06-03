@@ -3,9 +3,9 @@ import GenericLinkButton from './GenericLinkButton';
 import { authService } from '@/services/auth.service';
 import { getAuth } from "firebase/auth";
 const auth = getAuth();
-const Header = () => {
+const Header = ({params}) => {
     const user = auth.currentUser;
-    console.log("header", user)
+    console.log(params)
     return (
         <div className='h-36 bg-black p-6 flex flex-row w-full justify-around items-center'>
             <p className='text-[#FEAE00]'>
