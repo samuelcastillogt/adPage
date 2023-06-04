@@ -13,7 +13,6 @@ const UserDatabanner = () => {
       },[user])
     return (
         <div className=' flex justify-center items-center'>
-            <p className='text-xl text-[#FEAE00] '>Hola {user.displayName ? user.displayName : "Error" }</p>
             <GenericLinkButton title="Publicar un nuevo anuncio" to="/dashboard/adcreactor" className="h-12"/>
         </div>
     );

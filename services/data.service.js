@@ -27,6 +27,19 @@ class ServiceData {
       return Ads
 
     }
+    getAdsByAutor = async(id)=>{
+      const Ads = []
+      const q = query(this.adsRef, where("autor", "==", id))
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        Ads.push({
+          id: doc.id,
+          data: doc.data()
+        })
+      });
+      return Ads
+
+    }
 }
 const serviceData = new ServiceData()
 export {serviceData}
