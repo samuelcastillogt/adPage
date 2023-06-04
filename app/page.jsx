@@ -13,7 +13,6 @@ const auth = getAuth();
 const index = async() => {
   const adsData = await serviceData.getAllAds()
   const user = auth.currentUser;
-  console.log("header", user)
   return (
     <>
       <SliderFull />

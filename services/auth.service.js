@@ -1,6 +1,8 @@
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, setPersistence, browserSessionPersistence } from "firebase/auth";
-
+import { Store, dispatch } from "redux";
 import { auth } from "./configFirebase";
+import { store } from "@/redux/store";
+import {SET_USER} from "../redux/use.slice"
 const provider = new GoogleAuthProvider();
 class AuthService{
     login = async()=>{
@@ -10,6 +12,7 @@ class AuthService{
     const credential = GoogleAuthProvider.credentialFromResult(result);
     const token = credential.accessToken;
     const user = result.user;
+    store.dispatch(SET_USER(user))
     console.log(user)
     return user
   })

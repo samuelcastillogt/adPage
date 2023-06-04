@@ -1,13 +1,22 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { redirect } from 'next/navigation'
 import Header from './Header';
 import {ImGoogle3} from "react-icons/im"
 import { authService } from '../../services/auth.service';
+import { useAppSelector } from '@/redux/hooks';
 const LoginForm = () => {
+  const isLogin = useAppSelector(state=> state.counterReducer.value)
     const [login, setLogin] = useState(true)
     const auth = ()=>{
       authService.login()
     }
+    useEffect(()=>{
+      console.log(isLogin)
+      if(isLogin != undefined){
+        redirect("/dashboard")
+      }
+    },[isLogin])
     return (
         <div className='h-96 flex flex-col justify-center items-center'>
           {

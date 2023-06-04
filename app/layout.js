@@ -3,7 +3,7 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 import './globals.css'
 import { Inter } from 'next/font/google'
-
+import { ProviderContainer } from '@/redux/ProviderContainer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -12,19 +12,21 @@ export const metadata = {
 }
 
 export default async function RootLayout({ children }) {
-  const user = authService.getDataActive()
-  console.log("layout", user)
   return (
-    <html lang="en">
+    
+      <html lang="en">
       
       <body className={inter.className}>
-        {/* <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-     crossorigin=""/> */}
-        <Header user={user}/>
+        <ProviderContainer>
+          <Header />
         {children}
         <Footer />
+        </ProviderContainer>
+        
         </body>
     </html>
+    
   )
+    
+    
 }

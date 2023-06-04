@@ -2,7 +2,9 @@
 import React, { useState } from 'react';
 import { serviceData } from '@/services/data.service';
 import Link from 'next/link';
+import { useAppSelector } from '@/redux/hooks';
 const AdFormCreator = () => {
+    const user = useAppSelector(state=> state.counterReducer.value)
     const [titulo, setTitulo] = useState("")
     const [descripcion, setDescripcion] = useState("")
     const [precio, setPrecio] = useState("")
@@ -21,7 +23,8 @@ const AdFormCreator = () => {
                 const response = await serviceData.saveAdData({
                     titulo,
                     descripcion,
-                    precio
+                    precio,
+                    autor: user.uid
                 })
                 setTitulo("")
                 setPrecio("")
