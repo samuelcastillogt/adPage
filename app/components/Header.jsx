@@ -16,7 +16,7 @@ const Header = () => {
             </p>
             <div className="flex flex-col w-64">
               <GenericLinkButton to="login" title={isLogin == 0 | isLogin == undefined ? "Iniciar Sesion" : "Mi Cuenta"} />
-            <GenericLinkButton to="#" title="Publicar un anuncio" />  
+            <GenericLinkButton to="/dashboard/adcreactor" title="Publicar un anuncio" />  
             </div>
             
         </div>

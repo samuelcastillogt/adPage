@@ -1,5 +1,5 @@
 import {database} from "./configFirebase.js"
-import { collection, setDoc, doc, addDoc, getDoc, query, where, getDocs } from "firebase/firestore";
+import { collection, setDoc, doc, addDoc, getDoc, query, where, getDocs, deleteDoc } from "firebase/firestore";
 class ServiceData {
     adsRef = collection(database, 'ads')
     saveAdData = async(data)=>{
@@ -39,6 +39,15 @@ class ServiceData {
       });
       return Ads
 
+    }
+    deleteAd = async(id)=>{
+      try{
+        await deleteDoc(doc(database, "ads", id))
+        return true
+      }catch(err){
+        console.log(err)
+      }
+      
     }
 }
 const serviceData = new ServiceData()

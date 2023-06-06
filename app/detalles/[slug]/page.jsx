@@ -11,7 +11,7 @@ const page = async({params}) => {
         <div className='m-5'>
             <div className="flex flex-wrap justify-around ">
                <img
-      src="https://slp-statics.astockcdn.net/static_assets/staging/23winter/home/curated-collections/Card6_564766791.jpg"
+      src={data.image}
       width={500}
       height={500}
       alt="Picture of the author"
