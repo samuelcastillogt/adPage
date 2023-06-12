@@ -1,8 +1,15 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, setPersistence, browserSessionPersistence } from "firebase/auth";
-import { Store, dispatch } from "redux";
+import { signInWithPopup, 
+         GoogleAuthProvider, 
+         onAuthStateChanged, 
+         setPersistence, 
+         browserSessionPersistence, 
+         createUserWithEmailAndPassword,
+         signInWithEmailAndPassword
+        } from "firebase/auth";
 import { auth } from "./configFirebase";
 import { store } from "@/redux/store";
 import {SET_USER} from "../redux/use.slice"
+import { serviceData } from "./data.service";
 const provider = new GoogleAuthProvider();
 class AuthService{
     login = async()=>{
@@ -17,15 +24,11 @@ class AuthService{
     return user
   })
         }).catch((error) => {
-    // Handle Errors here.
     const errorCode = error.code;
     const errorMessage = error.message;
-    // The email of the user's account used.
     const email = error.customData.email;
-    // The AuthCredential type that was used.
     const credential = GoogleAuthProvider.credentialFromError(error);
     console.log("errtro", error)
-    // ...
   });
    
     }
@@ -44,9 +47,38 @@ if (user) {
               return uid
             } else {
               // User is signed out
-              // ...
+    
             }
           })
+    }
+    createUser=async(username, email, password)=>{
+      console.log(username, email, password)
+      createUserWithEmailAndPassword(auth, email, password)
+      .then(async(userCredential) => {
+          const user = userCredential.user;
+          await serviceData.addDataUser(user, username).then(response =>{ 
+          console.log(response)
+          store.dispatch(SET_USER(user))
+      })
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
+    }
+    loginEmailPass = async(email, pass)=>{
+      signInWithEmailAndPassword(auth, email, pass)
+  .then((userCredential) => {
+    const user = userCredential.user;
+    store.dispatch(SET_USER(user))
+  })
+  .catch((error) => {
+    alert("Usuario o contraseña equivocada")
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
+
     }
 }
 const authService = new AuthService()

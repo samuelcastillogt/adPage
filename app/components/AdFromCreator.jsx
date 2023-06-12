@@ -7,6 +7,7 @@ import GenericLinkButton from './GenericLinkButton';
 import { categorias } from '@/utils/categorias';
 import moment from 'moment';
 import { storageService } from '@/services/storage.service';
+import { Image } from 'image-js';
 const AdFormCreator = () => {
     const user = useAppSelector(state=> state.counterReducer.value)
     const [titulo, setTitulo] = useState("")
@@ -53,13 +54,20 @@ const AdFormCreator = () => {
         <div className='my-5 flex flex-col justify-center items-center'>
             <div className="flex flex-col justify-center items-center">
                 {
-                    image && <img src={image} alt="" />
-                }
-                
-                <input type="file" name="" id="" onChange={async(e)=>{
+                    image && <img src={image} alt="" className='w-56'/> || <input type="file" name="" id="" className="file:mr-4 file:py-2 file:px-4
+      file:rounded-full file:border-0
+      file:text-sm file:font-semibold
+       file:bg-[#FEAE00]
+      hover:file:bg-[#FEAE00]" onChange={async(e)=>{
+                    // console.log(e.currentTarget.files[0])
+                    // const img = await Image.load(e.currentTarget.files[0])
+                    // console.log(img)
                     const upload = await storageService.uploadFile(e.currentTarget.files[0])
                     setImage(upload)
                 }}/>
+                }
+                
+                
                 <input type="text" value={titulo} onChange={(e)=>setTitulo(e.target.value)} placeholder='Titulo del anuncio' className='border-yellow-700 w-80 border rounded m-5 p-3'/>
                 <textarea value={descripcion} onChange={(e)=>setDescripcion(e.target.value)} className='border-yellow-700 w-80 border rounded m-5 p-3' placeholder='Descripcion'></textarea>
                 <select name="" id="" className='border border-yellow-700 p-4 rounded' onChange={(e)=>{

@@ -1,4 +1,4 @@
-import { categorias } from '@/utils/categorias';
+import { categorias, gigs, searchTrabajo, servicios, subInmuebles, subMascotas, trabajo, venta } from '@/utils/categorias';
 import React from 'react';
 
 const PremiumAdsCarrusel = () => {
@@ -11,51 +11,46 @@ const PremiumAdsCarrusel = () => {
                 )
             }
         </tr>
-        <tr className=' m-5 divide-x divide-gray-400 flex justify-center items-center snap-x'>
-            <td className='text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
+        <tbody className='flex'>
+            <tr className=' divide-x divide-gray-400 flex flex-col justify-center items-center snap-x'>
+            {
+                subMascotas && subMascotas.map((item, index)=>  <td key={index} className='text-xs  mx-1 flex justify-center items-center  w-52'>{item}</td>)
+            }
         </tr>
-        <tr className=' m-5 divide-x divide-gray-400 flex justify-center items-center snap-x'>
-            <td className='text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
+       
+        <tr className=' divide-x divide-gray-400 flex flex-col justify-center items-center snap-x'>
+            {
+                subInmuebles && subInmuebles.map((item, index)=>  <td key={index} className='text-xs  mx-1 flex justify-center items-center  w-52'>{item}</td>)
+            }
         </tr>
-        <tr className=' m-5 divide-x flex divide-gray-400 justify-center items-center snap-x'>
-            <td className='text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
+        <tr className=' divide-x divide-gray-400 flex flex-col justify-center items-center snap-x'>
+            {
+                servicios && servicios.map((item, index)=>  <td key={index} className='text-xs  mx-1 flex justify-center items-center  w-52'>{item}</td>)
+            }
         </tr>
-        <tr className=' m-5 divide-x flex divide-gray-400 justify-center items-center snap-x'>
-            <td className='text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
+        <tr className=' divide-x divide-gray-400 flex flex-col justify-center items-center snap-x'>
+            {
+                trabajo && trabajo.map((item, index)=>  <td key={index} className='text-xs  mx-1 flex justify-center items-center  w-52'>{item}</td>)
+            }
         </tr>
-        <tr className=' m-5 divide-x flex divide-gray-400 justify-center items-center snap-x'>
-            <td className='text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
-            <td className=' text-xs  mx-1 flex justify-center items-center  w-52'>Subcategoria</td>
+        <tr className=' divide-x divide-gray-400 flex flex-col justify-center items-center snap-x'>
+            {
+                venta && venta.map((item, index)=>  <td key={index} className='text-xs  mx-1 flex justify-center items-center  w-52'>{item}</td>)
+            }
         </tr>
+        <tr className=' divide-x divide-gray-400 flex flex-col justify-center items-center snap-x'>
+            {
+                gigs && gigs.map((item, index)=>  <td key={index} className='text-xs  mx-1 flex justify-center items-center  w-52'>{item}</td>)
+            }
+        </tr>
+        <tr className=' divide-x divide-gray-400 flex flex-col justify-center items-center snap-x'>
+            {
+                searchTrabajo && searchTrabajo.map((item, index)=>  <td key={index} className='text-xs  mx-1 flex justify-center items-center  w-52'>{item}</td>)
+            }
+        </tr>
+        </tbody>
+      
+
         </table>
         
     );

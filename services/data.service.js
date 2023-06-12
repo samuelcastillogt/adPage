@@ -2,6 +2,7 @@ import {database} from "./configFirebase.js"
 import { collection, setDoc, doc, addDoc, getDoc, query, where, getDocs, deleteDoc } from "firebase/firestore";
 class ServiceData {
     adsRef = collection(database, 'ads')
+    userRef = doc(database, "user", "LA")
     saveAdData = async(data)=>{
        const save = await addDoc(this.adsRef, data);
        return save.id
@@ -44,6 +45,14 @@ class ServiceData {
       try{
         await deleteDoc(doc(database, "ads", id))
         return true
+      }catch(err){
+        console.log(err)
+      }
+      
+    }
+    addDataUser = async(data, username)=>{
+      try{
+        await setDoc(doc(database, "user", data.uid), {email: data.email, username, id: data.uid});
       }catch(err){
         console.log(err)
       }
