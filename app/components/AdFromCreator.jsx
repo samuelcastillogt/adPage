@@ -275,9 +275,7 @@ const AdFormCreator = () => {
         >
           Crear anuncio
         </button>
-      </div>
-      {error != false && error}
-      {anuncio && (
+        {anuncio && (
         <div className="flex">
           <GenericLinkButton
             to={"/detalles/" + anuncio}
@@ -288,6 +286,9 @@ const AdFormCreator = () => {
           )}
         </div>
       )}
+      </div>
+      {error != false && error}
+      
       
         
     
