@@ -40,7 +40,7 @@ const page = async({params}) => {
                 data && data.map(item =>{
                     if(item.data.adType == "premium"){
 return(          
-                     <tr>
+                     <tr key={item.id}>
                         <Link href={"/detalles/" + item.id}>
                         <td className='m-5'>{item.data.created}</td>
                         <td className='m-5'>{item.data.titulo}</td>
@@ -58,7 +58,7 @@ return(
                 data && data.map(item =>{
                     if(item.data.adType == "free"){
 return(
-                      <tr>
+                      <tr key={item.id}>
                         <Link href={"/detalles/" + item.id}>
                         <td className='m-5'>{item.data.created}</td>
                         <td className='m-5'>{item.data.titulo}</td>
