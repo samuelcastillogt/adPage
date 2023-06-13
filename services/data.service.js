@@ -41,6 +41,19 @@ class ServiceData {
       return Ads
 
     }
+    getAdsByDept = async(dept)=>{
+      const Ads = []
+      const q = query(this.adsRef, where("departamento", "==", dept))
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        Ads.push({
+          id: doc.id,
+          data: doc.data()
+        })
+      });
+      return Ads
+
+    }
     deleteAd = async(id)=>{
       try{
         await deleteDoc(doc(database, "ads", id))

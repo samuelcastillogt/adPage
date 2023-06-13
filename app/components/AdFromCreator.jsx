@@ -20,6 +20,7 @@ const AdFormCreator = () => {
   const [tel, setTel] = useState("")
   const [dir, setdir] = useState("")
   const [categoria, setCategoria] = useState(categorias[0]);
+  const [departamento, setDepartamento] = useState("todos")
   const [sub, setSub] = useState()
   const [subCategoria, setSubcategoria] = useState()
   const [image, setImage] = useState();
@@ -35,19 +36,21 @@ const AdFormCreator = () => {
         case "Inmuebles disponibles":
             setSub(subInmuebles)
             break
-            case "Ofrezco mis servicios":
-                setSub(servicios)
-                break
-                case "Ofrezco trabajo":
+        case "Ofrezco mis servicios":
+            setSub(servicios)
+            break
+        case "Ofrezco trabajo":
             setSub(trabajo)
             break
-            case "Artículos a la venta":
+        case "Artículos a la venta":
             setSub(venta)
             break
-            case "Gigs / trabajos temporales":
-                setSub(gigs)
-            case "Busco trabajo":
-                setSub(searchTrabajo)
+        case "Gigs / trabajos temporales":
+            setSub(gigs)
+            break
+        case "Busco trabajo":
+            setSub(searchTrabajo)
+            break
     }
     }
    
@@ -76,7 +79,8 @@ const AdFormCreator = () => {
           subCategoria,
           adType,
           tel: tel.length > 8 ? tel : "none",
-          dir: dir.length = 0 ? tel : "none"
+          dir: dir.length == 0 ? tel : "none",
+          departamento
         });
         setTitulo("");
         setPrecio("");
@@ -99,6 +103,7 @@ const AdFormCreator = () => {
             id=""
             className="border border-yellow-700 p-4 rounded"
             onChange={(e) => {
+              setDepartamento(e.currentTarget.value)
               setDisplayOn(e.currentTarget.value);
             }}
             placeholder="Seleccione un departamento"

@@ -4,7 +4,6 @@ import { serviceData } from '@/services/data.service';
 import ButtonsAds from '@/app/components/ButtonsAds';
 import Map from '@/app/components/Map';
 const page = async({params}) => {
-    console.log(params)
     const {data, id} = await serviceData.getAdData(params.slug);
 
     return (
