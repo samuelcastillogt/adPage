@@ -29,10 +29,15 @@ const SliderFull = () => {
         }
     }
     return (
-        <div className='h-64 bg-gray-500 flex justify-around items-center'>
-            <AiOutlineLeftCircle size={32} onClick={before}/>    
-            {data[index].title}
-            <AiOutlineRightCircle size={32} onClick={next}/>
+        <div className="h-64 bg-[url(https://placekitten.com/1400/1400)] bg-center bg-cover bg-fixed flex justify-around items-center" 
+        //         style={{
+        //     backgroundImage: "url(https://placekitten.com/1400/1400)",
+        //     backgroundPosition: "center",
+        //     backgroundSize: "cover",
+        //     backgroundAttachment: "fixed",
+        //     backgroundRepeat: "no-repeat"
+        // }}
+        >
         </div>
     );
 };
