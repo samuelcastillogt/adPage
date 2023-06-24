@@ -6,8 +6,7 @@ import React from 'react';
 
 const page = async({params}) => {
     const {slug} = params
-    const data = await serviceData.getAdsByDept("Chimaltenango")
-    console.log(data)
+    const data = await serviceData.getAdsBySubCat(slug.replace("%20", " "))
     return (
       <div>
         <div className="h-80 bg-gray-500">Banner</div>
@@ -22,56 +21,63 @@ const page = async({params}) => {
           <GenericLinkButton to="/login" title="Mi Cuenta" />
         </div>
         <div className="flex justify-center w-full">
-           <table className="s-full">
-          <thead>
-            <tr>
-            <th className='m-5'>Fecha de Publicacion</th>
-            <th className='m-5'>Titulo del Anuncio</th>
-            <th className='m-5'>Lugar</th>
-            <th className='m-5'>Adjunta</th>
-            </tr>
-            <tr>
-                <td>
-                    </td>      
-            </tr>
-          </thead>
-          <tbody>
-            {
-                data && data.map(item =>{
-                    if(item.data.adType == "premium"){
-return(          
-                     <tr key={item.id}>
-                        <Link href={"/detalles/" + item.id}>
-                        <td className='m-5'>{item.data.created}</td>
-                        <td className='m-5'>{item.data.titulo}</td>
-                        <td className='m-5'>{item.data.departamento}</td>
-                       </Link> 
-            </tr>
-
-                    )
-                    }else return
-                    
-                })
+        {
+              data && data.length == 0 && <h2>No hay nada que mostrar</h2>
             }
-            <p className='font-bold my-5'>Anuncios Relacionados</p>
-            {
-                data && data.map(item =>{
-                    if(item.data.adType == "free"){
-return(
-                      <tr key={item.id}>
-                        <Link href={"/detalles/" + item.id}>
-                        <td className='m-5'>{item.data.created}</td>
-                        <td className='m-5'>{item.data.titulo}</td>
-                        <td className='m-5'>{item.data.departamento}</td>
-                       </Link> 
-            </tr>  
-                    )
-                    }else return
-                    
-                })
+             {
+              data && data.length > 0 &&   <table className="s-full">
+              <thead>
+                <tr>
+                <th className='m-5'>Fecha de Publicacion</th>
+                <th className='m-5'>Titulo del Anuncio</th>
+                <th className='m-5'>Lugar</th>
+                <th className='m-5'>Adjunta</th>
+                </tr>
+                <tr>
+                    <td>
+                        </td>      
+                </tr>
+              </thead>
+              <tbody>
+               
+                {
+                    data && data.map(item =>{
+                        if(item.data.adType == "premium"){
+    return(          
+                         <tr key={item.id}>
+                            <Link href={"/detalles/" + item.id}>
+                            <td className='m-5'>{item.data.created}</td>
+                            <td className='m-5'>{item.data.titulo}</td>
+                            <td className='m-5'>{item.data.departamento}</td>
+                           </Link> 
+                </tr>
+    
+                        )
+                        }else return
+                        
+                    })
+                }
+                <p className='font-bold my-5'>Anuncios Relacionados</p>
+                {
+                    data &&  data.map(item =>{
+                        if(item.data.adType == "free"){
+    return(
+                          <tr key={item.id}>
+                            <Link href={"/detalles/" + item.id}>
+                            <td className='m-5'>{item.data.created}</td>
+                            <td className='m-5'>{item.data.titulo}</td>
+                            <td className='m-5'>{item.data.departamento}</td>
+                           </Link> 
+                </tr>  
+                        )
+                        }else return
+                        
+                    })
+                }
+              </tbody>
+            </table> 
             }
-          </tbody>
-        </table> 
+         
         </div>
         <UpButton />
       </div>

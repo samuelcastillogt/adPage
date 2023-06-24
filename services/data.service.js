@@ -1,5 +1,6 @@
 import {database} from "./configFirebase.js"
 import { collection, setDoc, doc, addDoc, getDoc, query, where, getDocs, deleteDoc } from "firebase/firestore";
+import { Store } from "redux";
 class ServiceData {
     adsRef = collection(database, 'ads')
     userRef = doc(database, "user", "LA")
@@ -44,6 +45,36 @@ class ServiceData {
     getAdsByDept = async(dept)=>{
       const Ads = []
       const q = query(this.adsRef, where("departamento", "==", dept))
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        Ads.push({
+          id: doc.id,
+          data: doc.data()
+        })
+      });
+      return Ads
+
+    }
+    getAdsBySubCat = async(dept)=>{
+      // const filtro = Store.getState().departamento.departamento
+      const Ads = []
+      const q = query(this.adsRef, where("subCategoria", "==", dept))
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        // if(doc.data().departamento == filtro){
+          Ads.push({
+          id: doc.id,
+          data: doc.data()
+        })
+        // }
+        
+      });
+      return Ads
+
+    }
+    getAdsBySubCatOut = async(dept, filtro)=>{
+      const Ads = []
+      const q = query(this.adsRef, where("subCategoria", "==", dept))
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
         Ads.push({
