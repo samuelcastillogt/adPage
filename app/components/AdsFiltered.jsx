@@ -4,6 +4,7 @@ import GenericLinkButton from "./GenericLinkButton"
 import { useSelector } from "react-redux"
 import UpButton from "./UpButton"
 import {departamentos} from "../../utils/departamentosGt"
+import { LinkProps } from "next/link"
 const AdsFiltered = (props)=>{
     const {data, subCategororia} = props
     const state = useSelector(state => state.departamento)
