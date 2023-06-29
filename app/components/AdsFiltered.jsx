@@ -16,7 +16,7 @@ const AdsFiltered = (props)=>{
           <div className="flex ">
             <select name="" id="" value={state.departamento}>
                 {
-                    departamentos.map(item => <option value={item}>{item}</option>)
+                    departamentos.map(item => <option value={item} key={item}>{item}</option>)
                 }
             </select>
             <p className="text-white">{subCategororia}</p>
