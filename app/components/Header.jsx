@@ -5,7 +5,6 @@ import { authService } from '@/services/auth.service';
 import { getAuth } from "firebase/auth";
 import { useSelector } from 'react-redux';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import { increment, reset } from '@/redux/use.slice';
 const auth = getAuth();
 const Header = () => {
     const isLogin = useAppSelector(state=> state.counterReducer.value)

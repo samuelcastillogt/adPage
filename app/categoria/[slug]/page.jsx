@@ -1,8 +1,5 @@
 import AdsFiltered from '@/app/components/AdsFiltered';
-import GenericLinkButton from '@/app/components/GenericLinkButton';
-import UpButton from '@/app/components/UpButton';
 import { serviceData } from '@/services/data.service';
-import Link from 'next/link';
 import React from 'react';
 
 const page = async({params}) => {
