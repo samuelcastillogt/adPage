@@ -23,7 +23,7 @@ const PremiumAdsCarrusel = () => {
             case "Artículos a la venta":
                 setSub(venta)
                 break
-            case "Gigs / trabajos temporales":
+            case "Gigs - trabajos temporales":
                 setSub(gigs)
                 break
             case "Busco trabajo":

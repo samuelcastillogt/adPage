@@ -10,7 +10,7 @@ const page = async({params}) => {
        
         
         <div className="flex justify-center w-full">
-<AdsFiltered data={data} subCategoria={slug.replace("%20", " ")}/>
+<AdsFiltered data={data} subCategoria={slug.replace("%20", " ")} slug={slug}/>
         </div>
 
       </div>

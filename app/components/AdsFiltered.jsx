@@ -10,7 +10,7 @@ const AdsFiltered = (props)=>{
   const state = useSelector(state => state.departamento)
     const [dataFiltered, setDataFilteres] = useState([])
     const [departamento, setDepartamento] = useState(state == undefined ? "Todo el Pais" : state.departamento)
-    const {data, subCategororia} = props
+    const {data, subCategororia, slug} = props
     useEffect(()=>{
       if(data != undefined){
         console.log(departamento)
@@ -21,11 +21,12 @@ const AdsFiltered = (props)=>{
     }, [data, departamento])
     return(
         <div className="flex justify-center w-full flex-col">
-         <div className="h-80 bg-gray-500">Banner 2</div>
+         <div className="h-80 bg-[url(https://s1.eestatic.com/2021/02/06/curiosidades/mascotas/556955529_172216847_1706x960.jpg)] bg-center bg-cover bg-fixed flex justify-around items-center">Banner 2</div>
         <div className="h-24 bg-black"></div>
         <div className="h-14 my-5 bg-black flex justify-around items-center">
           <div className="flex ">
-            <select name="" id="" value={departamento} onChange={e => setDepartamento(e.currentTarget.value)}>
+            <p className="text-white mx-5">Mostrando {slug} </p>
+            <select name="" id="" className="bg-[#FEAE00] rounded" value={departamento} onChange={e => setDepartamento(e.currentTarget.value)}>
             <option value="Todo el Pais" key="Todo el Pais">Todo el Pais</option>)
                 {
                     departamentos.map(item => <option value={item} key={item}>{item}</option>)

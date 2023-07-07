@@ -11,7 +11,7 @@ const LoginForm = () => {
   const [email, setemail] = useState("")
   const [pass, setPass] = useState("")
   const [errorPass, setErrorPass] = useState()
-  const [login, setLogin] = useState(true)
+  const [login, setLogin] = useState(false)
   const auth = async()=>{
     authService.createUser(username, email, pass)
   }
@@ -25,20 +25,20 @@ const LoginForm = () => {
     }
   },[isLogin])
     return (
-        <div className='h-96 flex flex-col justify-center items-center'>
+        <div className='h-96 flex flex-col justify-center items-center m-12 p-5'>
           {
             login ? <>
             <p className='font-bold text-3xl'>Crea una cuenta</p> 
           {/* <div className="btn bg-[#FEAE00] rounded-full text-center  w-72 p-5 cursor-pointer" onClick={auth}>
             <p className='font-bold'>Crear una cuenta con Google <ImGoogle3 style={{margin: 0, display: "inline"}} /></p> */}
             <label htmlFor="">Nombre de Usuario</label>
-            <input type="text" className='border border-black' onChange={(e)=> setUserName(e.currentTarget.value)}/>
+            <input type="text" className='border border-[#FEAE00] rounded p-2 ' onChange={(e)=> setUserName(e.currentTarget.value)}/>
             <label htmlFor="">Correo Electronico</label>
-            <input type="email" className='border border-black' onChange={(e)=> setemail(e.currentTarget.value)}/>
+            <input type="email" className='border border-[#FEAE00] rounded p-2 ' onChange={(e)=> setemail(e.currentTarget.value)}/>
             <label htmlFor="">Contraseña</label>
-            <input type="password" className='border border-black' onChange={(e)=> setPass(e.currentTarget.value)}/>
+            <input type="password" className='border border-[#FEAE00] rounded p-2 ' onChange={(e)=> setPass(e.currentTarget.value)}/>
             <label htmlFor="">Confirmar Contraseña</label>
-            <input type="password" className='border border-black' onChange={(e)=>{
+            <input type="password" className='border border-[#FEAE00] rounded p-2 ' onChange={(e)=>{
               if(e.currentTarget.value != pass){
                 e.currentTarget.classList.add("bg-red-700")
               }else{
@@ -53,10 +53,11 @@ const LoginForm = () => {
 <>
 <p className="font-bold text-3xl">Iniciar Sesion</p> 
 <label htmlFor="">Correo Electronico</label>
-            <input type="email" className='border border-black' onChange={(e)=> setemail(e.currentTarget.value)}/>
+            <input type="email" className='border border-[#FEAE00] rounded p-2' onChange={(e)=> setemail(e.currentTarget.value)}/>
             <label htmlFor="">Contraseña</label>
-            <input type="password" className='border border-black' onChange={(e)=> setPass(e.currentTarget.value)}/>
+            <input type="password" className='border border-[#FEAE00] rounded p-2' onChange={(e)=> setPass(e.currentTarget.value)}/>
             <button className='bg-[#FEAE00] p-3 m-5 rounded' onClick={inicio}>Iniciar Sesion</button>
+            <p onClick={()=> setLogin(true)} className='cursor-pointer my-5 hover:text-red-600'>No tienes una cuenta? Crea una gratis</p>
 {/* <div className="btn bg-[#FEAE00] rounded-full text-center  w-72 p-5 cursor-pointer" onClick={auth}>
 <p className='font-bold'>Iniciar Sesion con Google <ImGoogle3 style={{margin: 0, display: "inline"}}/></p>
 </div>   */}

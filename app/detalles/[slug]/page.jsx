@@ -7,7 +7,7 @@ const page = async({params}) => {
     const {data, id} = await serviceData.getAdData(params.slug);
 
     return (
-        <div className='m-5'>
+        <div className='m-5 flex flex-col'>
             <div className="flex flex-wrap justify-around ">
                <img
       src={data.image}
@@ -19,12 +19,15 @@ const page = async({params}) => {
         <Map />
   
             </div>
-           <ButtonsAds /> 
+
+           <div>
             <div className="m-5">
               <p className='text-2xl font-bold'>{data.titulo}</p>
             <p>{data.descripcion}</p>
             <p>Q. {data.precio}</p>  
             </div>
+            <ButtonsAds /> 
+           </div>
             
         </div>
         
