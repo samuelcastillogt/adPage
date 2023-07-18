@@ -25,7 +25,7 @@ const AdsFiltered = (props)=>{
         <div className="h-24 bg-black"></div>
         <div className="h-14 my-5 bg-black flex justify-around items-center">
           <div className="flex ">
-            <p className="text-white mx-5">Mostrando {slug} </p>
+            <p className="text-white mx-5">Mostrando <span className="text-[#FEAE00]">{slug.replace(/%20/g, " ")}</span> </p>
             <select name="" id="" className="bg-[#FEAE00] rounded" value={departamento} onChange={e => setDepartamento(e.currentTarget.value)}>
             <option value="Todo el Pais" key="Todo el Pais">Todo el Pais</option>)
                 {
