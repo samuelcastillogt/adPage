@@ -1,10 +1,8 @@
 "use client"
 import React, { useEffect } from 'react';
 import GenericLinkButton from './GenericLinkButton';
-import { authService } from '@/services/auth.service';
 import { getAuth } from "firebase/auth";
-import { useSelector } from 'react-redux';
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import {  useAppSelector } from '@/redux/hooks';
 import Link from 'next/link';
 const auth = getAuth();
 const Header = () => {
@@ -19,7 +17,6 @@ const Header = () => {
             </p> 
             </div>  
             </Link>
-                window.location.pathname == "/" &&
                 <div className="flex flex-col w-64">
               <GenericLinkButton to="login" title={isLogin == 0 | isLogin == undefined ? "Iniciar Sesion" : "Mi Cuenta"} />
             <GenericLinkButton to="/dashboard/adcreactor" title="Publicar un anuncio" />  
