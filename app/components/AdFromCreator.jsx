@@ -7,7 +7,6 @@ import GenericLinkButton from "./GenericLinkButton";
 import { categorias, gigs, searchTrabajo, servicios, subInmuebles, subMascotas, trabajo, venta } from '@/utils/categorias';
 import moment from "moment";
 import { storageService } from "@/services/storage.service";
-import { Image } from "image-js";
 import { departamentos } from "@/utils/departamentosGt";
 const AdFormCreator = () => {
   const user = useAppSelector((state) => state.counterReducer.value);
