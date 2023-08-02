@@ -4,7 +4,6 @@ import GenericLinkButton from './GenericLinkButton';
 import { getAuth } from "firebase/auth";
 import {  useAppSelector } from '@/redux/hooks';
 import Link from 'next/link';
-const auth = getAuth();
 const Header = () => {
     const isLogin = useAppSelector(state=> state.counterReducer.value)
     return (
